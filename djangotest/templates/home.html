@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+<style>
+{% block style %}
+.text-align-center {
+	text-align: center;
+}
+.jumbotron {
+	background-color: #149062;
+	color: #fff;
+}
+{% endblock %}
+</style>
+
+
+{% block jumbotron %}
+<div class="jumbotron">
+	<div class="container">
+	<div class="row" >
+		<div class="col-sm-6">
+	        <h1>Django Project</h1>
+	        <p>This example is a quick exercise to illustrate how the top-aligned navbar works. As you scroll, this navbar remains in its original position and moves with the rest of the page.</p>
+	        <a class="btn btn-lg btn-primary" href="../../components/navbar/" role="button">Join Us &raquo;</a>
+      	</div>
+      	<div class='col-sm-6' style='background-color: black;height: 300px'>
+      	</div>
+    </div>
+	</div>
+</div>
+{% endblock %}
+
+
+{% block content %}
+<div class="row">
+<div class="col-3">
+	<p class="lead text-align-center"> Build with Django &amp; Bootstap </p>
+</div>
+<div class="col-3">
+	<p class="lead text-align-center"> A &amp; B </p>
+</div>
+<div class="col-3">
+	<p class="lead text-align-center"> C &amp; D </p>
+</div>
+
+  	<div class="col-3 ml-auto"> <!-- ml-auto move the div to right side -->
+		<p class="lead text-align-center">{{ title}}</p>
+
+		<form method='POST' action=''>{% csrf_token %} <!-- allow us to send post data to terminal -->
+		<!-- {{ form.as_p }} -->
+		{{ form|crispy }}
+
+
+		<input class='btn btn-primary' type='submit' value='Sign Up'>
+
+		</form>
+	</div>
+</div>
+
+{% endblock %}
